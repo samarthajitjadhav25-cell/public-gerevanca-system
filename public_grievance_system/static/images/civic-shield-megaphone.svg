@@ -1,0 +1,25 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Civic service shield and megaphone</title>
+  <desc id="desc">A dimensional purple shield with a check mark and a blue violet megaphone, floating above a soft glow.</desc>
+  <defs>
+    <linearGradient id="shield" x1="200" y1="90" x2="510" y2="500" gradientUnits="userSpaceOnUse"><stop stop-color="#9F8BFF"/><stop offset=".48" stop-color="#694DEB"/><stop offset="1" stop-color="#3831A8"/></linearGradient>
+    <linearGradient id="shieldSide" x1="460" y1="170" x2="570" y2="490" gradientUnits="userSpaceOnUse"><stop stop-color="#382F9C"/><stop offset="1" stop-color="#211E65"/></linearGradient>
+    <linearGradient id="cone" x1="463" y1="263" x2="790" y2="445" gradientUnits="userSpaceOnUse"><stop stop-color="#87D7FF"/><stop offset=".45" stop-color="#655BF4"/><stop offset="1" stop-color="#4238B7"/></linearGradient>
+    <linearGradient id="handle" x1="534" y1="403" x2="622" y2="536" gradientUnits="userSpaceOnUse"><stop stop-color="#B6A8FF"/><stop offset="1" stop-color="#5040C8"/></linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="matrix(0 180 -300 0 495 425)" gradientUnits="userSpaceOnUse"><stop stop-color="#8F7BFF" stop-opacity=".42"/><stop offset="1" stop-color="#8F7BFF" stop-opacity="0"/></radialGradient>
+    <filter id="shadow" x="120" y="40" width="710" height="590" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feGaussianBlur in="SourceAlpha" stdDeviation="16"/><feOffset dy="18"/><feComponentTransfer><feFuncA type="linear" slope=".28"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <ellipse cx="495" cy="438" fill="url(#glow)" rx="300" ry="180"/>
+  <g filter="url(#shadow)">
+    <path d="m341 91 169 61v136c0 119-78 187-169 235-91-48-169-116-169-235V152l169-61Z" fill="url(#shieldSide)" transform="translate(23 13)"/>
+    <path d="m341 72 169 61v136c0 119-78 187-169 235-91-48-169-116-169-235V133l169-61Z" fill="url(#shield)" stroke="#D6CCFF" stroke-width="5"/>
+    <path d="m256 266 57 57 115-122" stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="25"/>
+    <path d="M542 270 738 198c18-7 37 6 37 26v132c0 20-19 33-37 26l-196-73v-39Z" fill="url(#cone)" stroke="#D8D5FF" stroke-width="5"/>
+    <path d="m542 270-61-17a29 29 0 0 0-37 28v35a29 29 0 0 0 37 28l61-17v-57Z" fill="#A89AFF" stroke="#E3DEFF" stroke-width="5"/>
+    <path d="m589 350 15 110c2 16-10 30-26 30h-26c-13 0-24-9-26-22l-18-102 81-16Z" fill="url(#handle)" stroke="#D8D5FF" stroke-width="5"/>
+    <path d="M770 250c34 26 34 83 0 109" stroke="#C5BDFF" stroke-linecap="round" stroke-width="11" opacity=".85"/>
+    <path d="M797 224c50 43 50 120 0 163" stroke="#AFA4FF" stroke-linecap="round" stroke-width="9" opacity=".7"/>
+    <path d="m231 157 11 22 24 3-18 16 5 24-22-12-21 12 4-24-17-16 24-3 10-22Z" fill="#D9D1FF"/>
+    <circle cx="704" cy="456" r="10" fill="#A7E8FF"/><circle cx="218" cy="421" r="7" fill="#C2B8FF"/>
+  </g>
+</svg>

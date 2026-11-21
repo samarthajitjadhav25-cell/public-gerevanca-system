@@ -1,0 +1,26 @@
+﻿{% extends 'base.html' %}
+{% block title %}Public Grievance Management System | Citizen Portal{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow"><span></span> A civic service for everyone</div>
+      <h1>Your voice<br><em>matters.</em></h1>
+      <p>Your voice matters. Report issues, track progress, and help build a better community.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="{{ url_for('submit_complaint') if current_user and current_user.role=='citizen' else url_for('register') }}">Submit a complaint <span>→</span></a>
+        <a class="btn btn-outline" href="{{ url_for('track_complaint') if current_user and current_user.role=='citizen' else url_for('login') }}">Track your complaint</a>
+      </div>
+      <div class="trust-note"><span class="check">✓</span> Clear updates. Accountable service. Stronger communities.</div>
+    </div>
+    <figure class="hero-photo-frame">
+      <img class="hero-photo" src="{{ url_for('static', filename='images/civic-city-hero.jpg') }}" alt="Modern city buildings and streets at dusk" fetchpriority="high">
+      <img class="hero-illustration" src="{{ url_for('static', filename='images/civic-shield-megaphone.svg') }}" alt="Dimensional civic shield and megaphone illustration">
+      <figcaption>City photo by <a href="https://unsplash.com/photos/photo-of-high-rise-buildings-with-blue-and-pink-sky-F-x4zXEG10o" target="_blank" rel="noopener">Ryan Loughlin</a> on Unsplash</figcaption>
+    </figure>
+  </div>
+</section>
+<section class="stats-band"><div class="container public-stats"><div><strong>{{ stats.total }}</strong><span>Total complaints</span></div><div><strong>{{ stats.resolved }}</strong><span>Resolved complaints</span></div><div><strong>{{ stats.active }}</strong><span>Active complaints</span></div><div><strong>{{ stats.departments }}</strong><span>Service departments</span></div></div></section>
+<section class="section services"><div class="container"><div class="section-heading"><div><div class="eyebrow">Common service areas</div><h2>Small actions, <em>stronger communities.</em></h2></div><a class="text-link" href="{{ url_for('services') }}">Explore all services →</a></div><div class="service-grid">{% set items=[('⌁','Road problems','Safer streets'),('◉','Water supply','Reliable clean water'),('ϟ','Electricity','Power concerns'),('♻','Garbage collection','Cleaner public spaces'),('≋','Drainage and sanitation','Healthy neighbourhoods'),('☼','Streetlights','Safer after dark')] %}{% for icon,title,desc in items %}<a class="service-card" href="{{ url_for('services') }}"><span class="service-icon">{{ icon }}</span><span><b>{{ title }}</b><small>{{ desc }}</small></span><span class="service-go">→</span></a>{% endfor %}</div></div></section>
+<section class="cta"><div class="container cta-inner"><div><div class="eyebrow light">Transparent service, built around citizens</div><h2>One portal. A better way forward.</h2><p>Learn how reports move from submission to resolution.</p></div><a class="btn btn-white" href="{{ url_for('how_it_works') }}">How it works <span>→</span></a></div></section>
+{% endblock %}

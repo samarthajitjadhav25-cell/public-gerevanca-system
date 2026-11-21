@@ -1,0 +1,39 @@
+﻿{% extends 'base.html' %}
+{% block title %}Contact | Public Grievance Management System{% endblock %}
+{% block content %}
+<section class="page-hero compact">
+  <div class="container">
+    <div class="eyebrow">Contact the portal team</div>
+    <h1>We’re here to <em>listen.</em></h1>
+    <p>Have a question about using the portal? Send a message to the community service desk.</p>
+  </div>
+</section>
+<section class="section contact-section">
+  <div class="container contact-layout">
+    <aside class="contact-info">
+      <div class="eyebrow light">Community service desk</div>
+      <h2>How can we help?</h2>
+      <p>Send us a note about portal access, account questions, or general service enquiries.</p>
+      <div class="contact-detail"><span aria-hidden="true">✉</span><div><small>Email</small><b><a href="mailto:help@civicportal.local">help@civicportal.local</a></b></div></div>
+      <div class="contact-detail"><span aria-hidden="true">◷</span><div><small>Service hours</small><b>Monday–Friday<br>9:00 AM–5:00 PM</b></div></div>
+      <div class="contact-note"><span aria-hidden="true">✓</span><p>Your message is saved for the portal team to review.</p></div>
+    </aside>
+    <form method="post" class="content-card contact-form">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+      <div class="form-intro">
+        <div class="eyebrow">Write to us</div>
+        <h2>Send a message</h2>
+        <p>Fill in the details below and we’ll make sure your enquiry reaches the portal team.</p>
+      </div>
+      <div class="form-two">
+        <label for="contact-name">Your name <i>*</i><input id="contact-name" required minlength="2" maxlength="100" name="name" placeholder="e.g. Jordan Lee" value="{{ request.form.get('name','') }}" autocomplete="name"></label>
+        <label for="contact-email">Email address <i>*</i><input id="contact-email" required type="email" name="email" placeholder="you@example.com" value="{{ request.form.get('email','') }}" autocomplete="email"></label>
+      </div>
+      <label for="contact-subject">Subject <i>*</i><input id="contact-subject" required minlength="3" maxlength="160" name="subject" placeholder="What can we help you with?" value="{{ request.form.get('subject','') }}"></label>
+      <label for="contact-message">Message <i>*</i><textarea id="contact-message" required minlength="10" maxlength="3000" rows="6" name="message" placeholder="Share a few details so we can understand your enquiry.">{{ request.form.get('message','') }}</textarea><small class="help">Please include enough detail for us to understand how to help.</small></label>
+      <div class="contact-submit"><span><b>*</b> Required fields</span><button class="btn btn-primary" type="submit">Send message <span aria-hidden="true">→</span></button></div>
+    </form>
+  </div>
+</section>
+{% endblock %}
+

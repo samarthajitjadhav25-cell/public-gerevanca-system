@@ -1,0 +1,41 @@
+﻿{% extends 'base.html' %}
+{% block title %}Track a complaint | Public Grievance{% endblock %}
+{% block content %}
+<section class="page-hero compact">
+  <div class="container">
+    <div class="eyebrow">Stay in the loop</div>
+    <h1>Track your <em>complaint.</em></h1>
+    <p>Enter the tracking ID from your submission confirmation. Tracking IDs work with or without spaces and are not case-sensitive.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container track-wrap">
+    <form method="get" class="track-search">
+      <label for="complaint-id">Complaint tracking ID</label>
+      <div class="track-search-row">
+        <input id="complaint-id" name="complaint_id" required autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="e.g. PGMS-A1B2C3D4" value="{{ tracking_id or '' }}">
+        <button class="btn btn-primary">Track complaint <span>→</span></button>
+      </div>
+      <small class="help">Use the code shown after you submitted your complaint. You must be signed into the account that filed it.</small>
+    </form>
+    {% if complaint %}
+    <div class="content-card track-result">
+      <div class="card-head">
+        <div><div class="eyebrow">{{ complaint.complaint_id }}</div><h2>{{ complaint.title }}</h2><p class="muted">Submitted {{ complaint.created_at }}</p></div>
+        <span class="status status-{{ complaint.status|lower|replace(' ','-') }}">{{ complaint.status }}</span>
+      </div>
+      <div class="detail-grid">
+        <div><small>Category</small><b>{{ complaint.category }}</b></div>
+        <div><small>Location</small><b>{{ complaint.location }} · {{ complaint.area }}</b></div>
+        <div><small>Assigned department</small><b>{{ complaint.department_name or 'Awaiting assignment' }}</b></div>
+        <div><small>Latest remarks</small><b>{{ complaint.admin_remarks or 'No remarks yet' }}</b></div>
+      </div>
+      {% include '_timeline.html' %}
+      <a class="row-link" href="{{ url_for('complaint_details',complaint_id=complaint.complaint_id) }}">View full details →</a>
+    </div>
+    {% elif searched %}
+    <div class="empty-state"><h3>We couldn’t find that complaint</h3><p>Check the ID and make sure you’re signed into the account that submitted it.</p></div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}
